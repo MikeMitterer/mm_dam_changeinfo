@@ -1,0 +1,8 @@
+
+  # cat=basic//10; type=string; label= Mail-Subject: This field is used as the subject for the Mail-Form
+extConfMailSubject = Files changed in DAM-Tree
+
+  # cat=basic//20; type=file [tmpl]; label= Mail-Template: You can store your own mail-templates in the plugins "res" folder.
+extConfMailTemplate = 
+
+

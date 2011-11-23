@@ -1,0 +1,44 @@
+/*
+BaseClass:
+	ext-mm-dam-changeinfo-mod1-index-php
+*/
+
+#ext-mm-dam-changeinfo-mod1-index-php div.changed-lines,
+#ext-mm-dam-changeinfo-mod1-index-php .mailform {
+	padding-left: 20px;
+}
+
+#ext-mm-dam-changeinfo-mod1-index-php div.changed-lines {
+	}
+	
+#ext-mm-dam-changeinfo-mod1-index-php .mailform {
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 23px;
+	width: 100%;
+	}
+
+#ext-mm-dam-changeinfo-mod1-index-php .mailform textarea{
+	width: 90%;
+	border: solid 1px #050505;
+	}
+
+#ext-mm-dam-changeinfo-mod1-index-php .bgColor4, #ext-mm-dam-changeinfo-mod1-index-php .bgColor5 {
+	padding: 2px;
+	}
+	
+#ext-mm-dam-changeinfo-mod1-index-php .user {
+	font-weight: bold;
+	}	
+	
+#ext-mm-dam-changeinfo-mod1-index-php .user,
+	#ext-mm-dam-changeinfo-mod1-index-php .email {
+	display: inline;
+	}
+	
+#ext-mm-dam-changeinfo-mod1-index-php .userspecific .headline div {
+	display: inline;
+	}	
+	
+	
+	

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for module &quot;tools_txmmdamchangeinfoM1&quot; - header, description</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="mlang_tabs_tab">DAM Change informer</label>
+			<label index="mlang_labels_tabdescr">Informs a set of users about changes in the DAM Tree</label>
+			<label index="mlang_labels_tablabel">DAM Change informer</label>
+		</languageKey>
+	</data>
+</T3locallang>

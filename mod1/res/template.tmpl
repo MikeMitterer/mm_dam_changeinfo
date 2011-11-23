@@ -1,0 +1,111 @@
+<!--###TEMPLATE_DEFAULT### begin
+	Help template for the default language, english
+	
+	Vars in this template:
+		###DCPATH###						- relative path fro DOCROOT to the Date Chooser files
+		###TEMPLATEPATH###					- relative path fro DOCROOT to the template files
+		###CURRENT_YEAR### 					- filled with the current year	
+		###CAL_START###						- the year the callendar starts (CURRENT_YEAR - 10)
+		###LABLE_DC###						- description for date chooser field
+		###LABLE_CHECK###					- lable of "Check" button
+		###DOB###							- current date
+		###FE_USER_<fieldname fe_users>###	- inserts the value of the correspondig table field
+		###TX_DAM_<fieldname tx_dam>###		- inserts the value of the correspondig table field
+		###TX_DAM_<fieldname>_YMD###		- fieldnames with "time,tstamp,date" in it will be converted to %Y %m %d
+		###LABLE_<name>###					- text for the lables comes from locallang
+		###NUMBEROFCHANGES###				- number of changed files
+
+-->
+<!--###JSCODE### begin -->
+<script language="javascript" type="text/javascript">
+	script_ended = 0;
+	function jumpToUrl(URL)	{
+		document.location = URL;
+	}
+	
+</script>
+<script language="javascript">
+  function toggleDiv(divid,imgid){
+    if(document.getElementById(divid).style.display == 'none'){
+      document.getElementById(divid).style.display = 'block';
+      document.getElementById(imgid).style.backgroundImage = 'url(###TEMPLATEPATH###minusbullet.png)';
+    }else{
+      document.getElementById(divid).style.display = 'none';
+      document.getElementById(imgid).style.backgroundImage = 'url(###TEMPLATEPATH###plusbullet.png)';
+    }
+  }
+</script>
+<script src="###DCPATH###date-functions.js" type="text/javascript"></script>
+<script src="###DCPATH###datechooser.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="###DCPATH###datechooser.css">
+<!--[if lte IE 6.5]>
+<link rel="stylesheet" type="text/css" href="###DCPATH###select-free.css"/>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="###TEMPLATEPATH###template.css">
+<!--###JSCODE### end -->
+
+<!--###POSTCODE### begin -->
+<script language="javascript" type="text/javascript">
+	script_ended = 1;
+	if (top.fsMod) top.fsMod.recentIds["web"] = 0;
+</script>
+<!--###POSTCODE### end -->
+
+<!--###DATECHOOSER### begin -->
+###LABLE_DC### <input id="dob" name="dob" size="10" maxlength="10" type="text" value="###DOB###"><img src="###DCPATH###calendar.gif" onclick="showChooser(this, 'dob', 'chooserSpan', ###CAL_START###, ###CURRENT_YEAR###, 'Y-m-d', false);"> 
+<div id="chooserSpan" class="dateChooser select-free" style="display: none; visibility: hidden; width: 160px;">
+</div><br/>
+<input type="checkbox" name="useroriented" value="checked" ###USERORIENTED_CHECKED###> ###LABLE_USERORIENTED###<br/><br/>
+<INPUT type="submit" name="submit" value="###LABLE_CHECK###"/>
+<!--###DATECHOOSER### end -->
+
+<!--###CHANGED### begin -->
+<!--###USERSPECIFIC### begin -->
+<div class="userspecific">
+	<div class="bgColor5">
+		<div class="headline">
+		<a href="javascript:;" onmousedown="toggleDiv('uid###FE_USER_UID###','uid###FE_USER_UID###img');"><img src="###TEMPLATEPATH###blank.gif" id="uid###FE_USER_UID###img"/ width="11" height="11" style="background-image: url(###TEMPLATEPATH###plusbullet.png)"></a>
+		<div class="user">###LABLE_USER### ###FE_USER_USERNAME###</div> 
+		<div class="nof">(###NUMBEROFCHANGES### ###LABLE_NOF###)</div>
+		<!--###EMAIL### begin -->
+		<div class="email">###LABLE_EMAIL### <a href="mailto:###FE_USER_EMAIL###">###FE_USER_EMAIL###</a></div>
+		<!--###EMAIL### end -->
+		</div>
+	</div>
+</div>
+<!--###USERSPECIFIC### end -->
+<div class="changed-lines" id="uid###FE_USER_UID###" style="display:none">
+	<table border="0" width="100%">
+	<tr class="headline">
+	<td class="bgColor5">###LABLE_COL_FILE_NAME###</td>
+	<td class="bgColor5">###LABLE_COL_FILE_PATH###</td>
+	<td class="bgColor5">###LABLE_COL_TSTAMP###</td>
+	<td class="bgColor5">###LABLE_COL_CRDATE###</td>
+	</tr>
+	<!--###CHANGED_LINE### begin -->
+	<tr>
+	<td class="bgColor4">###TX_DAM_FILE_NAME###</td>
+	<td class="bgColor4">###TX_DAM_FILE_PATH###</td>
+	<td class="bgColor4">###TX_DAM_TSTAMP_YMD###</td>
+	<td class="bgColor4">###TX_DAM_CRDATE_YMD###</td>
+	</tr>
+	<!--###CHANGED_LINE### end -->
+	</table>
+	
+<!-- ###MAILFORM### begin -->
+<div class="mailform">
+<form action="mailto:###FE_USER_EMAIL###" method="GET" wrap="off" enctype="text/plain">
+<input name="subject" type="hidden" value="###EXT_CONF_MAILSUBJECT###">
+<textarea name="body" rows="5" wrap="off" class="bgColor4">
+<!-- ###MAILTEXT### begin --><!--###CHANGED_MAILFORM_LINE### begin -->###TX_DAM_FILE_NAME###,&nbsp;###TX_DAM_FILE_PATH###
+<!--###CHANGED_MAILFORM_LINE### end -->
+<!-- ###MAILTEXT### end -->
+</textarea><br/>
+<input type="submit" name="submit_mail" value="###LABLE_SEND_FEEDBACK###">
+</form>
+</div>
+<!-- ###MAILFORM### end -->
+</div>
+<!--###CHANGED### end -->
+
+<!--###TEMPLATE_DEFAULT### end -->
